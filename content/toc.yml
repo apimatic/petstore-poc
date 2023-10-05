@@ -1,0 +1,146 @@
+toc:
+  - group: Pet Store API
+    items:
+      - group: Guides
+        items:
+          - page: Overview
+            file: pet-store-api/overview.md
+      - group: SDK Packages
+        items:
+          - page: Available Packages
+            file: available-packages.md
+      - group: Guided Walkthroughs
+        items:
+          - page: Adding Pet Details
+            file: pet-store-api/guided-walkthroughs/walkthrough-1.md
+          - page: Adding User Details
+            file: user-api/guided-walkthroughs/walkthrough-1.md
+          - page: Create Order For Pet
+            file: pet-order-api/guided-walkthroughs/walkthrough-1.md
+      - page: Quick API Reference
+        file: api-reference.md
+      - group: API Endpoints
+        items:
+          - group: Pet
+            items:
+              - generate: 
+                from: endpoint
+                endpoint-name: getPetById
+                endpoint-group: pet
+              - generate: 
+                from: endpoint
+                endpoint-name: updatePetWithForm
+                endpoint-group: pet
+              - generate: 
+                from: endpoint
+                endpoint-name: deletePet
+                endpoint-group: pet
+              - generate: 
+                from: endpoint
+                endpoint-name: uploadFile
+                endpoint-group: pet
+              - generate: 
+                from: endpoint
+                endpoint-name: addPet
+                endpoint-group: pet
+              - generate: 
+                from: endpoint
+                endpoint-name: updatePet
+                endpoint-group: pet
+              - generate: 
+                from: endpoint
+                endpoint-name: findPetsByStatus
+                endpoint-group: pet
+              - generate: 
+                from: endpoint
+                endpoint-name: findPetsByTags
+                endpoint-group: pet
+          - group: Store
+            items:
+              - generate: 
+                from: endpoint
+                endpoint-name: placeOrder
+                endpoint-group: store
+              - generate: 
+                from: endpoint
+                endpoint-name: getOrderById
+                endpoint-group: store
+              - generate: 
+                from: endpoint
+                endpoint-name: deleteOrder
+                endpoint-group: store
+              - generate: 
+                from: endpoint
+                endpoint-name: getInventory
+                endpoint-group: store
+          - group: User
+            items:
+              - generate: 
+                from: endpoint
+                endpoint-name: getUserByName
+                endpoint-group: user
+              - generate: 
+                from: endpoint
+                endpoint-name: updateUser
+                endpoint-group: user
+              - generate: 
+                from: endpoint
+                endpoint-name: deleteUser
+                endpoint-group: user
+              - generate: 
+                from: endpoint
+                endpoint-name: loginUser
+                endpoint-group: user
+              - generate: 
+                from: endpoint
+                endpoint-name: logoutUser
+                endpoint-group: user
+              - generate: 
+                from: endpoint
+                endpoint-name: createUsersWithListInput
+                endpoint-group: user
+              - generate: 
+                from: endpoint
+                endpoint-name: createUser
+                endpoint-group: user
+      - group: Models
+        items:
+          - group: Structures
+            items:
+              - generate: 
+                from: model
+                model-name: Pet
+              - generate: 
+                from: model
+                model-name: Tag
+              - generate: 
+                from: model
+                model-name: Customer
+              - generate: 
+                from: model
+                model-name: Address
+              - generate: 
+                from: model
+                model-name: PetImage
+              - generate: 
+                from: model
+                model-name: Order
+              - generate: 
+                from: model
+                model-name: User
+          - group: Enumberations
+            items:
+              - generate: 
+                from: model
+                model-name: Category
+              - generate: 
+                from: model
+                model-name: OrderStatus
+              - generate: 
+                from: model
+                model-name: PetStatus
+              - generate: 
+                from: model
+                model-name: status
+  - generate: Setting Up SDKs
+    from: getting-started

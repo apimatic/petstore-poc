@@ -1,0 +1,231 @@
+{
+  "$schema": "https://titan.apimatic.io/api/build/schema",
+  "buildFileVersion": "1",
+  "generatePortal": {
+    "tailIncludes": "<script defer src='./static/guided-walkthrough-scripts/user-api-walkthrough.js'></script><script defer src='./static/guided-walkthrough-scripts/pet-store-api-walkthrough.js'></script><script defer src='./static/guided-walkthrough-scripts/pet-order-api-walkthrough.js'></script><script>document.addEventListener('DOMContentLoaded', (event) => {APIMaticDevPortal.ready(({ registerWorkflow }) => {registerWorkflow( 'page:pet-store-api/guided-walkthroughs/walkthrough-1', 'Adding Pet Details', PetStoreApiWalkthrough); registerWorkflow( 'page:user-api/guided-walkthroughs/walkthrough-1', 'Adding User Details', UserApiWalkthrough); registerWorkflow( 'page:pet-order-api/guided-walkthroughs/walkthrough-1', 'Place Order For Pet', PetOrderApiWalkthrough); });});</script>",
+    "contentFolder": "./",
+    "apiSpecPath": "./spec",
+    "apiSpecs": [],
+    "apiMergeSettings": {
+      "type": "Full"
+    },
+    "languageConfig": {
+      "http": {},
+      "csharp": {
+        "packageRepository": "NuGet",
+        "packageSettings": {
+          "PackageName": "sdksio.SwaggerPetstore3SDK",
+          "Version": "1.0.0"
+        }
+      },
+      "java": {
+        "packageRepository": "Maven",
+        "packageSettings": {
+          "GroupId": "io.sdks",
+          "PackageName": "sample-sdk-artifact-id",
+          "Version": "1.0.0"
+        }
+      },
+      "php": {
+        "packageRepository": "Packagist",
+        "packageSettings": {
+          "VendorName": "sdksio",
+          "PackageName": "swagger-petstore-3-sdk",
+          "Version": "1.0.0"
+        }
+      },
+      "python": {
+        "packageRepository": "PyPI",
+        "packageSettings": {
+          "PackageName": "sdksio-swagger-petstore-3-sdk",
+          "Version": "1.0.0"
+        }
+      },
+      "ruby": {
+        "packageRepository": "RubyGems",
+        "packageSettings": {
+          "PackageName": "sdksio-swagger-petstore-3-sdk",
+          "Version": "1.0.0"
+        }
+      },
+      "typescript": {
+        "packageRepository": "Npm",
+        "packageSettings": {
+          "PackageName": "sdksio-swagger-petstore-3-sdk",
+          "Version": "1.0.0"
+        }
+      }
+    },
+    "portalSettings": {
+      "container": "apimatic-widget",
+      "portalStyle": "default",
+      "apiKey": "xxx",
+      "baseUrl": "./",
+      "enableExport": true,
+      "enableAnalytics": true,
+      "enableConsoleCalls": true,
+      "useProxyForConsoleCalls": false,
+      "languageSettings": {
+        "http_curl_v1": {
+          "sdkDownloadLink": "",
+          "disableSdkDownload": false
+        },
+        "cs_net_standard_lib": {
+          "sdkDownloadLink": "",
+          "disableSdkDownload": false
+        },
+        "java_eclipse_jre_lib": {
+          "sdkDownloadLink": "",
+          "disableSdkDownload": false
+        },
+        "php_generic_lib_v2": {
+          "sdkDownloadLink": "",
+          "disableSdkDownload": false
+        },
+        "python_generic_lib": {
+          "sdkDownloadLink": "",
+          "disableSdkDownload": false
+        },
+        "ruby_generic_lib": {
+          "sdkDownloadLink": "",
+          "disableSdkDownload": false
+        },
+        "ts_generic_lib": {
+          "sdkDownloadLink": "",
+          "disableSdkDownload": false
+        }
+      },
+      "allowedExportFormats": [
+        "postman10",
+        "postman20",
+        "openapi31json",
+        "openapi31yaml",
+        "openapi3json",
+        "openapi3yaml",
+        "swagger20",
+        "swaggeryaml",
+        "swagger10",
+        "raml",
+        "raml10",
+        "apiblueprint",
+        "wadl2009",
+        "apimatic",
+        "wsdl",
+        "insomnia",
+        "insomniayaml"
+      ],
+      "themeOverrides": {
+        "palette": {
+          "primaryColor": "#0c7ff2",
+          "linkColor": "#00C7D4"
+        },
+        "fontSource": [],
+        "cssStyles": {
+          "headings": {
+            "fontFamily": "'Rubik', sans-serif",
+            "h1": {
+              "fontFamily": "'Rubik', sans-serif",
+              "fontSize": "27px",
+              "fontWeight": "500",
+              "fontStyle": "normal",
+              "lineHeight": "1.3"
+            },
+            "h2": {
+              "fontFamily": "'Rubik', sans-serif",
+              "fontSize": "24px",
+              "fontWeight": "500",
+              "fontStyle": "normal",
+              "lineHeight": "1.3"
+            },
+            "h3": {
+              "fontFamily": "'Rubik', sans-serif",
+              "fontSize": "21.36px",
+              "fontWeight": "500",
+              "fontStyle": "normal",
+              "lineHeight": "1.3"
+            },
+            "h4": {
+              "fontFamily": "'Rubik', sans-serif",
+              "fontSize": "18px",
+              "fontWeight": "500",
+              "fontStyle": "normal",
+              "lineHeight": "1.3"
+            },
+            "h5": {
+              "fontFamily": "'Rubik', sans-serif",
+              "fontSize": "16px",
+              "fontWeight": "500",
+              "fontStyle": "normal",
+              "lineHeight": "1.3"
+            },
+            "h6": {
+              "fontFamily": "'Rubik', sans-serif",
+              "fontSize": "15px",
+              "fontWeight": "500",
+              "fontStyle": "normal",
+              "lineHeight": "1.3"
+            }
+          },
+          "body": {
+            "fontFamily": "'Rubik', sans-serif",
+            "text1": {
+              "fontFamily": "'Rubik', sans-serif",
+              "fontSize": "15px",
+              "fontWeight": "400",
+              "fontStyle": "normal",
+              "lineHeight": "1.75"
+            },
+            "text2": {
+              "fontFamily": "'Rubik', sans-serif",
+              "fontSize": "13.33px",
+              "fontWeight": "400",
+              "fontStyle": "normal",
+              "lineHeight": "1.75"
+            },
+            "text3": {
+              "fontFamily": "'Rubik', sans-serif",
+              "fontSize": "11.85px",
+              "fontWeight": "400",
+              "fontStyle": "normal",
+              "lineHeight": "1.75"
+            }
+          },
+          "code": {
+            "fontFamily": "Courier Prime, monospace",
+            "inlineCode": {
+              "fontFamily": "Courier Prime, monospace",
+              "fontSize": "15px",
+              "fontWeight": "400",
+              "fontStyle": "normal",
+              "lineHeight": "1.75"
+            },
+            "blockCode": {
+              "fontFamily": "Courier Prime, monospace",
+              "fontSize": "15px",
+              "fontWeight": "400",
+              "fontStyle": "normal",
+              "lineHeight": "1.75"
+            }
+          }
+        }
+      },
+      "codegenApiRoutes": {
+        "docsgen": "/static/docs/{template}.json",
+        "codegen": "/static/sdks/{template}.zip",
+        "transform": "/static/exports/{format}.{ext}"
+      },
+      "renameHttpToRest": true
+    },
+    "pageTitle": "Petstore API",
+    "navTitle": "APIMatic",
+    "logoLink": "",
+    "whiteLabel": false,
+    "useHostedPortalScript": false,
+    "debug": {
+      "publishReport": false,
+      "dumpImportedApi": false,
+      "reportPath": "./apimatic-debug/apimatic-report.html",
+      "importedApiDumpPath": "./apimatic-debug/imported-api-dump.json"
+    }
+  }
+}
