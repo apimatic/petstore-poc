@@ -1,6 +1,6 @@
 SDK Source code can be downloaded from this portal in 6 Programming languages by switching to the desired language via the languages dropdown and clicking on the download SDK button.
 
-![alt text](https://res.cloudinary.com/apimatic/image/upload/v1686294906/642aaef086700d929a215dc5/642aaef086700d929a215dc5--petstore.gif)
+![alt text](../static/images/sdk.gif)
 
 In addition, the following SDKs can also be downloaded from Package repositories:
 

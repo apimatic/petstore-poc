@@ -1,0 +1,13 @@
+{
+    "MergeConfiguration": {
+  "MergeApis": true,
+  "MergedApiName": "APIMATIC",
+  "MergeOrderOfDirectories": [
+    "Calculator",
+    "PetStore"
+  ],
+  "MergeSettings": {
+    "DeduplicateModels": false
+  }
+}
+}
