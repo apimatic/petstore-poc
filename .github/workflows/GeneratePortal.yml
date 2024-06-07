@@ -1,0 +1,99 @@
+name: Generate and Deploy Portal
+
+on:
+  workflow_dispatch:  
+  push:
+    branches: 
+      - main 
+      - dev
+      
+jobs:
+  generate-portal:
+    runs-on: ubuntu-latest
+
+    steps:
+       
+    - uses: actions/checkout@v1
+      name : checkout-repo
+      id: checkout-repo  
+    
+    - name: print branch
+      run: echo '${{ github.ref }}'
+
+    - name: Zip files
+      run: zip -qq -r portal-input.zip . -x '/.git/*' '/.github/*'
+      
+    # Call Apimatic Endpoint to generate Portal
+    - name: Call build endpoint
+      id: generate-portal
+      run: | 
+        RESPONSE=`curl -s --write-out '%{http_code}\t%{content_type}' --request POST --url 'https://api.apimatic.io/portal' \
+          -H 'Authorization:X-Auth-Key ${{ secrets.API_KEY }}' -F 'file=@portal-input.zip' -OJ`;
+        
+        HTTP_CODE=$(echo $RESPONSE | cut -d " " -f 1);
+        CONTENT_TYPE=$(echo $RESPONSE | cut -d " " -f 2);
+        echo "HTTP_CODE=$HTTP_CODE" >> $GITHUB_OUTPUT;
+        echo "CONTENT_TYPE=$CONTENT_TYPE" >> $GITHUB_OUTPUT;
+
+    - name: list
+      run: ls
+
+    - name: Extract generated Portal
+      if: ${{steps.generate-portal.outputs.HTTP_CODE == '200'}}
+      run: unzip -qq portal.zip -d static-portal
+    
+    - name: list
+      run: ls
+      
+    # Publish updates to cloudflare
+    - name: Publish to Cloudflare Pages to main
+      if: endsWith(github.ref, '/main')
+      uses: cloudflare/wrangler-action@2.0.0
+      with:
+        apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        command: pages deploy static-portal --branch=main --project-name=${{ secrets.CLOUDFLARE_PROJECT_NAME }}
+    
+    - name: Publish to Cloudflare Pages to dev
+      if: endsWith(github.ref, '/dev')
+      uses: cloudflare/wrangler-action@2.0.0
+      with:
+        apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        command: pages deploy static-portal --branch=dev --project-name=${{ secrets.CLOUDFLARE_PROJECT_NAME }}
+
+      # Upload Portal Artifact
+    - name: Upload Artifact
+      if: ${{steps.generate-portal.outputs.HTTP_CODE == '200' }}
+      uses: actions/upload-artifact@v3.1.1
+      with:
+        name: static-portal
+        path: static-portal
+
+    # Unzip error file if error code is 422 with a zip file
+    - name: Unzip error file
+      if: ${{steps.generate-portal.outputs.HTTP_CODE == '422' && steps.generate-portal.outputs.CONTENT_TYPE == 'application/zip'}}
+      run: unzip -qq error.zip -d error
+      
+    # Upload error.zip if error code is 422 with a zip file
+    - name: Upload error.zip
+      if: ${{steps.generate-portal.outputs.HTTP_CODE == '422' && steps.generate-portal.outputs.CONTENT_TYPE == 'application/zip'}}
+      uses: actions/upload-artifact@v3.1.1
+      with:
+        name: error
+        path: error
+
+    # Fail job if API response is not 200
+    - name: Log error if not successful
+      if: ${{steps.generate-portal.outputs.HTTP_CODE != '200' && steps.generate-portal.outputs.CONTENT_TYPE != 'application/zip'}}
+      run: |
+        echo "The Portal Generation request failed with response code ${{steps.generate-portal.outputs.HTTP_CODE}} and message $(cat portal)"; \
+        exit 1
+        
+    # Fail job if API response is not 200 and is a zip file
+    - name: Log error if not successful
+      if: ${{steps.generate-portal.outputs.HTTP_CODE != '200' && steps.generate-portal.outputs.CONTENT_TYPE == 'application/zip'}}
+      run: |
+        echo "The Portal Generation request failed with response code ${{steps.generate-portal.outputs.HTTP_CODE}}; \
+        exit 1
+    
