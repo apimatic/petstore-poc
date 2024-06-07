@@ -51,9 +51,34 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/Pet"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/Pet"
+            examples:
+              update-status:
+                value:
+                  name: doggie
+                  photoUrls:
+                    - myphoto
+                  id: 10
+                  petStatus: sold
+              update-tags:
+                value:
+                  name: cat
+                  photoUrls:
+                    - myphoto1
+                  id: 10
+                  tags:
+                    - id: 1
+                      name: friendly
+                    - id: 2
+                      name: playful
+              update-category:
+                value:
+                  name: cat
+                  photoUrls:
+                    - myphoto1
+                  id: 10
+                  category:
+                    id: 1
+                    name: Persian Cat
         required: true
       responses:
         "200":
@@ -62,13 +87,27 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Pet"
+              example:
+                name: "Rex"
+                photoUrls:
+                  - "https://example.com/photo1.jpg"
+                  - "https://example.com/photo2.jpg"
+                id: 123
+                category:
+                  id: 1
+                  name: "Dogs"
+                tags:
+                  - id: 1
+                    name: "friendly"
+                  - id: 2
+                    name: "playful"
+                petStatus: "available"
         "400":
           description: Invalid ID supplied
         "404":
           description: Pet not found
         "405":
-          description: Validation exception
-        
+          description: Validation exception        
     post:
       tags:
         - pet
@@ -80,10 +119,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/Pet"
+              anyOf:  
+                - $ref: "#/components/schemas/PetByCategory"
+                - $ref: "#/components/schemas/PetByTag"
           application/x-www-form-urlencoded:
             schema:
-              $ref: "#/components/schemas/Pet"
+              anyOf:  
+                - $ref: "#/components/schemas/PetByCategory"
+                - $ref: "#/components/schemas/PetByTag"
         required: true
       responses:
         "200":
@@ -92,9 +135,23 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Pet"
+              example:
+                name: "Rex"
+                photoUrls:
+                  - "https://example.com/photo1.jpg"
+                  - "https://example.com/photo2.jpg"
+                id: 123
+                category:
+                  id: 1
+                  name: "Dogs"
+                tags:
+                  - id: 1
+                    name: "friendly"
+                  - id: 2
+                    name: "playful"
+                petStatus: "available"  
         "405":
-          description: Invalid input
-        
+          description: Invalid input        
   /pet/findByStatus:
     get:
       tags:
@@ -124,9 +181,33 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/Pet"
+              example:
+                - id: 10
+                  name: "doggie"
+                  photoUrls: 
+                  - "photoUrls5"
+                  - "photoUrls6"
+                  category: 
+                    id: 232
+                    name: "name2"
+                  tags: 
+                  - id: 26
+                    name: "name0"
+                  petStatus: "sold"
+                - id: 11
+                  name: "kitty"
+                  photoUrls: 
+                  - "photoUrls7"
+                  - "photoUrls8"
+                  category: 
+                    id: 233
+                    name: "name3"
+                  tags: 
+                  - id: 27
+                    name: "name1"
+                  petStatus: "available"
         "400":
-          description: Invalid status value
-        
+          description: Invalid status value        
   /pet/findByTags:
     get:
       tags:
@@ -153,9 +234,33 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/Pet"
+              example:
+                - id: 10
+                  name: "doggie"
+                  photoUrls: 
+                  - "photoUrls5"
+                  - "photoUrls6"
+                  category: 
+                    id: 232
+                    name: "name2"
+                  tags: 
+                  - id: 26
+                    name: "name0"
+                  petStatus: "sold"
+                - id: 11
+                  name: "kitty"
+                  photoUrls: 
+                  - "photoUrls7"
+                  - "photoUrls8"
+                  category: 
+                    id: 233
+                    name: "name3"
+                  tags: 
+                  - id: 27
+                    name: "name1"
+                  petStatus: "available"  
         "400":
-          description: Invalid tag value
-        
+          description: Invalid tag value        
   /pet/{petId}:
     get:
       tags:
@@ -178,13 +283,27 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Pet"
+              example:
+                name: "Rex"
+                photoUrls:
+                  - "https://example.com/photo1.jpg"
+                  - "https://example.com/photo2.jpg"
+                id: 123
+                category:
+                  id: 1
+                  name: "Dogs"
+                tags:
+                  - id: 1
+                    name: "friendly"
+                  - id: 2
+                    name: "playful"
+                petStatus: "available"
         "400":
           description: Invalid ID supplied
         "404":
           description: Pet not found
       security:
-        - api_key: []
-        
+        - api_key: []        
     post:
       tags:
         - pet
@@ -211,8 +330,7 @@ paths:
             type: string
       responses:
         "405":
-          description: Invalid input
-        
+          description: Invalid input        
     delete:
       tags:
         - pet
@@ -235,8 +353,7 @@ paths:
             type: string
       responses:
         "400":
-          description: Invalid pet value
-        
+          description: Invalid pet value        
   /pet/{petId}/uploadImage:
     post:
       tags:
@@ -271,7 +388,10 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/PetImage"
-        
+              example:
+                code: 200
+                type: "unknown"
+                message: "additionalMetadata"        
   /store/inventory:
     get:
       tags:
@@ -289,6 +409,16 @@ paths:
                 additionalProperties:
                   type: integer
                   format: int32
+              example:
+                ordered: -1701012768
+                approved: -1539485046
+                placed: -2147313865
+                test: -262249829
+                pending: -1403561788
+                available: 1386631487
+                invalid: 2
+                deliver: -1019515409
+                delivered: 355966565
       security:
         - api_key: []
   /store/order:
@@ -313,6 +443,13 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Order"
+              example:
+                id: 10
+                petId: 198772
+                quantity: 7
+                shipDate: "2023-05-31T00:00:00Z"
+                orderStatus: "approved"
+                complete: true
         "405":
           description: Invalid input
   /store/order/{orderId}:
@@ -337,6 +474,13 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Order"
+              example:
+                id: 10
+                petId: 198772
+                quantity: 7
+                shipDate: "2023-05-31T00:00:00Z"
+                orderStatus: "approved"
+                complete: true
         "400":
           description: Invalid ID supplied
         "404":
@@ -373,9 +517,51 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/User"
+            examples:
+              user1:
+                value:
+                  id: 10
+                  username: "theUser"
+                  firstName: "John"
+                  lastName: "James"
+                  email: "john@email.com"
+                  password: "12345"
+                  phone: "12345"
+                  userStatus: 1
+              user2:
+                value:
+                  id: 11
+                  username: "anotherUser"
+                  firstName: "Jane"
+                  lastName: "Doe"
+                  email: "jane@email.com"
+                  password: "67890"
+                  phone: "67890"
+                  userStatus: 2
           application/x-www-form-urlencoded:
             schema:
               $ref: "#/components/schemas/User"
+            examples:
+              user1:
+                value:
+                  id: 10
+                  username: "theUser"
+                  firstName: "John"
+                  lastName: "James"
+                  email: "john@email.com"
+                  password: "12345"
+                  phone: "12345"
+                  userStatus: 1
+              user2:
+                value:
+                  id: 11
+                  username: "anotherUser"
+                  firstName: "Jane"
+                  lastName: "Doe"
+                  email: "jane@email.com"
+                  password: "67890"
+                  phone: "67890"
+                  userStatus: 2
       responses:
         default:
           description: successful operation
@@ -383,6 +569,15 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/User"
+              example:
+                id: 10
+                username: "theUser"
+                firstName: "John"
+                lastName: "James"
+                email: "john@email.com"
+                password: "12345"
+                phone: "12345"
+                userStatus: 1
   /user/createWithList:
     post:
       tags:
@@ -404,6 +599,15 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/User"
+              example:
+                id: 10
+                username: "theUser"
+                firstName: "John"
+                lastName: "James"
+                email: "john@email.com"
+                password: "12345"
+                phone: "12345"
+                userStatus: 1
         default:
           description: successful operation
   /user/login:
@@ -444,6 +648,7 @@ paths:
             application/json:
               schema:
                 type: string
+              example: "logged in user session: 1234567890"
         "400":
           description: Invalid username/password supplied
   /user/logout:
@@ -478,6 +683,15 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/User"
+              example:
+                id: 10
+                username: "theUser"
+                firstName: "John"
+                lastName: "James"
+                email: "john@email.com"
+                password: "12345"
+                phone: "12345"
+                userStatus: 1
         "400":
           description: Invalid username supplied
         "404":
@@ -501,9 +715,27 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/User"
+            example:
+              id: 10
+              username: "theUser"
+              firstName: "John"
+              lastName: "James"
+              email: "john@email.com"
+              password: "12345"
+              phone: "12345"
+              userStatus: 1
           application/x-www-form-urlencoded:
             schema:
               $ref: "#/components/schemas/User"
+            example:
+              id: 10
+              username: "theUser"
+              firstName: "John"
+              lastName: "James"
+              email: "john@email.com"
+              password: "12345"
+              phone: "12345"
+              userStatus: 1
       responses:
         default:
           description: successful operation
@@ -674,6 +906,70 @@ components:
           type: string
         message:
           type: string
+    PetByCategory:
+      required:
+        - name
+        - photoUrls
+        - category
+      type: object
+      properties:
+        name:
+          type: string
+        photoUrls:
+          type: array
+          items:
+            type: string
+        id:
+          type: integer
+          format: int64
+          example: 10
+        category:
+          $ref: "#/components/schemas/Category"
+        petStatus:
+          type: string
+          description: pet status in the store
+          enum:
+            - available
+            - pending
+            - sold
+    PetByTag:
+      required:
+        - name
+        - photoUrls
+        - tags
+      type: object
+      properties:
+        name:
+          type: string
+          example: "Fluffy"
+        photoUrls:
+          type: array
+          items:
+            type: string
+          example:
+            - "https://example.com/photo1.jpg"
+            - "https://example.com/photo2.jpg"  
+        id:
+          type: integer
+          format: int64
+          example: 10
+        tags:
+          type: array
+          items:
+            $ref: "#/components/schemas/Tag"
+          example:
+            - id: 1
+              name: "tag1"
+            - id: 2
+              name: "tag2"
+        petStatus:
+          type: string
+          description: pet status in the store
+          enum:
+            - available
+            - pending
+            - sold
+          example: "available"
   requestBodies:
     Pet:
       description: Pet object that needs to be added to the store

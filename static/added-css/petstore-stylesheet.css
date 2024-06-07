@@ -1,0 +1,72 @@
+.cards-group-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+    width: 40vw;
+  }
+
+  .petstore-card {
+    width: 50%;
+    max-width: 500px;
+  }
+
+  .petstore-card-content-wrapper {
+    width: 100%;
+    height: 200px;
+    background-color: #0c7ff2; /* Light Blue */
+    padding: 1vw;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+
+  .petstore-card-info {
+    line-height: 24px;
+    color: white;
+    margin-bottom: 20px;
+    font-family: Arial, sans-serif;
+  }
+
+  .links-wrapper {
+    position: absolute;
+    bottom: 20px;
+    left: 1vw;
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+  }
+
+  .links {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    border-bottom: 2px solid white;
+    padding-bottom: 2px;
+    transition: border-color 0.3s;
+  }
+
+  .links:hover {
+    cursor: pointer;
+    text-decoration: none;
+    border-color: transparent;
+  }
+
+  .petstore-custom-btn {
+    background-color: #0c7ff2; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+  }
+  
+  .petstore-custom-btn:hover {
+    background-color: #45a049;
+  }

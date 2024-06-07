@@ -2,7 +2,7 @@
   "$schema": "https://titan.apimatic.io/api/build/schema",
   "buildFileVersion": "1",
   "generatePortal": {
-    "tailIncludes": "<script defer src='./static/guided-walkthrough-scripts/user-api-walkthrough.js'></script><script defer src='./static/guided-walkthrough-scripts/pet-store-api-walkthrough.js'></script><script defer src='./static/guided-walkthrough-scripts/pet-order-api-walkthrough.js'></script><script>document.addEventListener('DOMContentLoaded', (event) => {APIMaticDevPortal.ready(({ registerWorkflow }) => {registerWorkflow( 'page:pet-store-api/guided-walkthroughs/walkthrough-1', 'Adding Pet Details', PetStoreApiWalkthrough); registerWorkflow( 'page:user-api/guided-walkthroughs/walkthrough-1', 'Adding User Details', UserApiWalkthrough); registerWorkflow( 'page:pet-order-api/guided-walkthroughs/walkthrough-1', 'Place Order For Pet', PetOrderApiWalkthrough); });});</script>",
+    "tailIncludes": "<link defer href='./static/added-css/petstore-stylesheet.css' rel='stylesheet'/><script defer src='./static/guided-walkthrough-scripts/user-api-walkthrough.js'></script><script defer src='./static/guided-walkthrough-scripts/pet-store-api-walkthrough.js'></script><script defer src='./static/guided-walkthrough-scripts/pet-order-api-walkthrough.js'></script><script>document.addEventListener('DOMContentLoaded', (event) => {APIMaticDevPortal.ready(({ registerWorkflow }) => {registerWorkflow( 'page:pet-store-api/guided-walkthroughs/walkthrough-1', 'Adding Pet Details', PetStoreApiWalkthrough); registerWorkflow( 'page:user-api/guided-walkthroughs/walkthrough-1', 'Adding User Details', UserApiWalkthrough); registerWorkflow( 'page:pet-order-api/guided-walkthroughs/walkthrough-1', 'Place Order For Pet', PetOrderApiWalkthrough); });});</script>",
     "contentFolder": "./",
     "apiSpecPath": "./spec",
     "apiSpecs": [],
@@ -216,8 +216,8 @@
       },
       "renameHttpToRest": true
     },
-    "pageTitle": "Petstore API",
-    "navTitle": "APIMatic",
+    "pageTitle": "APIMatic Sample API",
+    "navTitle": "APIMatic Sample API",
     "logoLink": "",
     "whiteLabel": false,
     "useHostedPortalScript": false,
