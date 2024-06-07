@@ -3,7 +3,7 @@ toc:
     items:
       - generate: How to setup SDKs
         from: getting-started
-  - group: Petstore
+  - group: Petstore API
     items:
     - group: Guides
       items:
@@ -159,7 +159,7 @@ toc:
       items:
         - page: Using custom HTML and CSS
           file: custom-html-css.md
-  - group: Calculator
+  - group: Calculator API
     items:
     - group: API Endpoints
       items:
