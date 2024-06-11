@@ -1,8 +1,4 @@
 toc:
-  - group: Setting Up SDKs
-    items:
-      - generate: How to setup SDKs
-        from: getting-started
   - group: Petstore API
     items:
     - group: Guides
@@ -157,8 +153,16 @@ toc:
               model-name: status
     - group: Custom HTML and CSS
       items:
-        - page: Using custom HTML and CSS
-          file: custom-html-css.md
+        - page: Custom Cards
+          file: custom-cards.md
+        - page: Custom Buttons
+          file: custom-buttons.md
+        - page: Collapsible Content
+          file: collapsible-content.md
+        - page: Callout Boxes
+          file: callout-boxes.md
+        - page: Iframes
+          file: embedding-iframes.md
   - group: Calculator API
     items:
     - group: API Endpoints
@@ -182,3 +186,7 @@ toc:
             - generate:
               from: model
               model-name: CouldNotCompute_Error
+  - group: Setting Up SDKs
+    items:
+      - generate: How to setup SDKs
+        from: getting-started

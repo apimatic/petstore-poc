@@ -6,11 +6,14 @@
     "contentFolder": "./",
     "apiSpecPath": "./spec",
     "apiSpecs": [],
+    "logoUrl": "https://www.apimatic.io/imgs/apimatic-logo-horizontal.svg",
+    "faviconUrl": "./static/images/fav.ico",
     "apiMergeSettings": {
       "type": "Full"
     },
     "languageConfig": {
       "http": {},
+      "go":{},
       "csharp": {
         "packageRepository": "NuGet",
         "packageSettings": {
@@ -59,7 +62,7 @@
     "portalSettings": {
       "container": "apimatic-widget",
       "portalStyle": "default",
-      "apiKey": "xxx",
+      "apiKey": "apimatic-pet-store",
       "baseUrl": "./",
       "enableExport": true,
       "enableAnalytics": true,
@@ -93,7 +96,13 @@
         "ts_generic_lib": {
           "sdkDownloadLink": "",
           "disableSdkDownload": false
+        },
+        "go_generic_lib": {
+          "sdkDownloadLink": "",
+          "disableSdkDownload": false,
+          "stabilityLevelTag": "beta"
         }
+
       },
       "allowedExportFormats": [
         "postman10",
@@ -116,8 +125,22 @@
       ],
       "themeOverrides": {
         "palette": {
-          "primaryColor": "#0c7ff2",
-          "linkColor": "#00C7D4"
+          "primaryColor": "#0C7FF2",
+          "linkColor": "#00C7D4",
+        "colors": {
+          "C000": "#FFFFFF",
+          "C100": "#F9FAFE",
+          "C200": "#F0F9FA",
+          "C201": "#F5F7F8",
+          "C300": "#E7E9F2",
+          "C400": "#CED2E2",
+          "C500": "#B0B5C9",
+          "C600": "#00C7D4",
+          "C700": "#606E8A",
+          "C800": "#3E445D",
+          "C900": "#282D44",
+          "C1000": "#1D2236"
+        }
         },
         "fontSource": [],
         "cssStyles": {
@@ -217,7 +240,7 @@
       "renameHttpToRest": true
     },
     "pageTitle": "APIMatic Sample API",
-    "navTitle": "APIMatic Sample API",
+    "navTitle": "Sample API",
     "logoLink": "",
     "whiteLabel": false,
     "useHostedPortalScript": false,
