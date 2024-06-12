@@ -70,3 +70,62 @@
   .petstore-custom-btn:hover {
     background-color: #45a049;
   }
+
+  .info {
+    width: 100%;
+    background: transparent url('https://i.ibb.co/qy1DLhB/Path-36325-2x.png') 15px 23px / 15px 15px no-repeat padding-box;
+    border: 0.5px solid #6b7e8f;
+    border-radius: 8px;
+    opacity: 1;
+    font-style: italic;
+    letter-spacing: 0px;
+    color: #6b7e8f;
+    margin: 0 auto 15px;
+    padding: 20px;
+    padding-left: 43px;
+    border-left: 8px solid #6b7e8f;
+}
+
+.warning {
+    width: 100%;
+    background: transparent url('https://i.ibb.co/8NF8wGQ/alert-triangle-2x.png') 15px 23px / 15px 15px no-repeat padding-box;
+    border: 0.5px solid #ff8a70;
+    border-radius: 8px;
+    opacity: 1;
+    font-style: italic;
+    color: #6b7e8f;
+    margin: 0 auto 15px;
+    padding: 20px;
+    padding-left: 43px;
+    border-left: 8px solid #ff8a70;
+}
+
+.success {
+    width: 100%;
+    background: transparent url('https://i.ibb.co/DKyV4qR/check-circle-2x.png') 15px 23px / 15px 15px no-repeat padding-box;
+    border: 0.5px solid #50cba7;
+    border-radius: 8px;
+    opacity: 1;
+    font-style: italic;
+    letter-spacing: 0px;
+    color: #6b7e8f;
+    margin: 0 auto 15px;
+    padding: 20px;
+    padding-left: 43px;
+    border-left: 8px solid #50cba7;
+}
+
+.error {
+    width: 100%;
+    background: transparent url('https://i.ibb.co/QkvccfK/x-circle-2-2x.png') 15px 23px / 15px 15px no-repeat padding-box;
+    border: 0.5px solid #ff4451;
+    border-radius: 8px;
+    opacity: 1;
+    font-style: italic;
+    letter-spacing: 0px;
+    color: #6b7e8f;
+    margin: 0 auto 15px;
+    padding: 20px;
+    padding-left: 43px;
+    border-left: 8px solid #ff4451;
+}
