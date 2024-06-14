@@ -41,7 +41,7 @@ See this [document](https://docs.apimatic.io/docs-as-code/generating-api-portal-
 ### Guided Walkthroughs:
 With API Matic’s [Guided Walkthroughs](https://docs.apimatic.io/platform-api/#/http/guides/generating-on-prem-api-portal/guided-walkthroughs), your API documentation can now include step-by-step instructions to solve common use cases for developers. Through code samples and live try-it calls, developers get hands-on experience chaining a series of API calls to reach a business objective.
 
-[Guided Walkthrough](https://apimaticpetstore.pages.dev/#/rest/petstore-api/guided-walkthroughs/adding-pet-details) in the published portal.
+For a live demo of the feature [click here](https://apimaticpetstore.pages.dev/#/rest/petstore-api/guided-walkthroughs/adding-pet-details).
 
 ### Linking Published Packages:
 Integrate popular package repositories like NuGet, Maven, and NPM into the portal, allowing users to download the source code seamlessly. See this [detailed documentation](https://docs.apimatic.io/platform-api/#/http/guides/generating-on-prem-api-portal/build-file-reference/generateportal-languageconfig-language_name-packagerepository) to enable this functionality in your portal.
@@ -55,8 +55,8 @@ Integration of the NuGet Package repository in the published portal:
 ![image](https://github.com/apimatic/petstore-poc/assets/104891437/02792991-63a1-4bb2-ad28-67b7b71fe383)
 
 
-### Multiple Request Samples:
-The [Multiple Request Samples Feature](https://docs.apimatic.io/changelog/dev-portal-support-for-multiple-request-examples/) allows API providers to illustrate different use cases with varied request payloads, significantly enhancing the Developer Portal. This feature enables developers to view diverse request body examples directly next to the designated operation, improving understanding and usability.
+### Multiple Request Examples:
+The [Multiple Request Exaples Feature](https://docs.apimatic.io/changelog/dev-portal-support-for-multiple-request-examples/) allows API providers to illustrate different use cases with varied request payloads, significantly enhancing the Developer Portal. This feature enables developers to view diverse request body examples directly next to the designated operation, improving understanding and usability.
 
 [Multiple Request Samples](https://apimaticpetstore.pages.dev/#/net-standard-library/petstore-api/api-endpoints/pet/update-pet) in the published portal.
 
