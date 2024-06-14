@@ -56,18 +56,18 @@ Integration of the NuGet Package repository in the published portal:
 
 
 ### Multiple Request Examples:
-The [Multiple Request Exaples Feature](https://docs.apimatic.io/changelog/dev-portal-support-for-multiple-request-examples/) allows API providers to illustrate different use cases with varied request payloads, significantly enhancing the Developer Portal. This feature enables developers to view diverse request body examples directly next to the designated operation, improving understanding and usability.
+The [Multiple Request Examples Feature](https://docs.apimatic.io/changelog/dev-portal-support-for-multiple-request-examples/) allows API providers to illustrate different use cases with varied request payloads, significantly enhancing the Developer Portal. This feature enables developers to view diverse request body examples directly next to the designated operation, improving understanding and usability.
 
-[Multiple Request Samples](https://apimaticpetstore.pages.dev/#/net-standard-library/petstore-api/api-endpoints/pet/update-pet) in the published portal.
+[click here](https://apimaticpetstore.pages.dev/#/net-standard-library/petstore-api/api-endpoints/pet/update-pet) to view how the multiple request examples look in the published portal.
 
 ### Support for OneOf and AnyOf Types:
 In the Developer Portal, the OneOf and AnyOf properties support users to interact with different schema options as selectable choices, streamlining data modeling and validation within a unified interface.
 
-[OneOf and AnyOf Types](https://apimaticpetstore.pages.dev/#/net-standard-library/petstore-api/api-endpoints/pet/add-pet) in the published portal.
+[click here](https://apimaticpetstore.pages.dev/#/net-standard-library/petstore-api/api-endpoints/pet/add-pet) to view how the OneOf and AnyOf Types look in the published portal.
 
 
 ### Support for Custom HTML and CSS:
 The Developer Portal supports custom CSS and HTML elements, including collapsible sections, buttons, and I-frames. This enhancement allows for personalized styling and the integration of interactive elements, enriching the user experience and providing greater flexibility in content presentation. Check the following [documentation](https://docs.apimatic.io/platform-api/#/http/guides/generating-on-prem-api-portal/build-file-reference/generateportal-tailincludes) to add include stylesheet while generating the Developer Portal.
 
-[Custom HTML and CSS](https://apimaticpetstore.pages.dev/#/net-standard-library/petstore-api/custom-html-and-css/custom-cards) in the published portal.
+[click here](https://apimaticpetstore.pages.dev/#/net-standard-library/petstore-api/custom-html-and-css/custom-cards) to view some sample HTML and CSS customizations in the published portal.
 
