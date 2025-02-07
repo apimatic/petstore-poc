@@ -67,7 +67,7 @@
       "enableExport": true,
       "enableAnalytics": true,
       "enableConsoleCalls": true,
-      "useProxyForConsoleCalls": false,
+      "useProxyForConsoleCalls": true,
       "languageSettings": {
         "http_curl_v1": {
           "sdkDownloadLink": "",
