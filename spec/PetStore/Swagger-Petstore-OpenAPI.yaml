@@ -95,7 +95,7 @@ paths:
                 id: 123
                 category:
                   id: 1
-                  name: "Dogs"
+                  name: "Cats"
                 tags:
                   - id: 1
                     name: "friendly"
