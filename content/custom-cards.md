@@ -1,4 +1,4 @@
-# Enhancing Documentation with Custom Cards
+# Documentation with Custom Cards
 
 *APIMatic* allows you to enhance your documentation using custom HTML and CSS elements. Below is an example of how you can incorporate custom cards.
 
